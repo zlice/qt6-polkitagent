@@ -13,7 +13,6 @@
 #include <QProcess>
 #include <QPushButton>
 #include <QComboBox>
-#include "tvirtualkeyboard.h"
 #include <QX11Info>
 #include <polkit-qt5-1/PolkitQt1/Identity>
 
@@ -61,8 +60,6 @@ private slots:
     void on_pushButton_clicked();
 
     void on_lineEdit_returnPressed();
-
-    void on_keyboardButton_clicked();
 
     void on_authenticationUsers_currentIndexChanged(int index);
 
