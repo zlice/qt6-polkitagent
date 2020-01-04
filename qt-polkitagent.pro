@@ -1,15 +1,7 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2016-05-01T16:23:34
-#
-#-------------------------------------------------
-
 QT       += core gui dbus x11extras widgets
-
-LIBS += -lpolkit-qt5-agent-1 -lpolkit-qt5-core-1 -lX11
-
-TARGET = qt-polkitagent
 TEMPLATE = app
+TARGET = qt-polkitagent
+
 DBUS_ADAPTORS = com.iskrembilen.polkitAuthAgent.xml
 
 SOURCES += main.cpp\
@@ -23,8 +15,7 @@ HEADERS  += \
 FORMS    += \
     authenticate.ui
 
-unix {
-    target.path = /usr/lib
+LIBS += -lpolkit-qt5-agent-1 -lpolkit-qt5-core-1 -lX11
 
-    INSTALLS += target
-}
+target.path = $$[QT_INSTALL_LIBS]
+INSTALLS += target
