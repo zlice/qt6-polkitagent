@@ -5,9 +5,9 @@ PolkitInterface::PolkitInterface(QObject *parent) : PolkitQt1::Agent::Listener(p
     //Register our Polkit service on DBus
     new PolkitAuthAgentAdaptor(this);
     QDBusConnection dbus = QDBusConnection::sessionBus();
-    dbus.registerService("org.thesuite.polkitAuthAgent");
+    dbus.registerService("com.iskrembilen.polkitAuthAgent");
 
-    if (!QDBusConnection::sessionBus().registerObject("/org/thesuite/polkitAuthAgent", this,
+    if (!QDBusConnection::sessionBus().registerObject("/com/iskrembilen/polkitAuthAgent", this,
                                                       QDBusConnection::ExportScriptableSlots | QDBusConnection::ExportScriptableProperties | QDBusConnection::ExportAdaptors)) {
         qDebug() << "Could not initiate Authentication Agent on DBus!";
     }

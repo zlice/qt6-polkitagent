@@ -15,7 +15,7 @@
 class PolkitInterface : public PolkitQt1::Agent::Listener
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "org.thesuite.polkitAuthAgent")
+    Q_CLASSINFO("D-Bus Interface", "com.iskrembilen.polkitAuthAgent")
 
 
 public:

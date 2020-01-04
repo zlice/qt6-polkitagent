@@ -1,5 +1,5 @@
-# ts-polkitagent
-Polkit Agent for theShell
+# qt-polkitagent
+Simple and lightweight agent for polkit
 
 ## Build
 ```
@@ -8,4 +8,4 @@ make
 ```
 
 ## Install
-Copy ts-polkitagent into /usr/lib
+`make install`

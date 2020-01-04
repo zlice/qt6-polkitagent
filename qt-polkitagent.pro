@@ -8,9 +8,9 @@ QT       += core gui dbus x11extras widgets
 
 LIBS += -lpolkit-qt5-agent-1 -lpolkit-qt5-core-1 -lX11
 
-TARGET = ts-polkitagent
+TARGET = qt-polkitagent
 TEMPLATE = app
-DBUS_ADAPTORS = org.thesuite.polkitAuthAgent.xml
+DBUS_ADAPTORS = com.iskrembilen.polkitAuthAgent.xml
 
 SOURCES += main.cpp\
     polkitinterface.cpp \
