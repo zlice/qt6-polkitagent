@@ -39,17 +39,19 @@ void Authenticate::showFullScreen(bool showError) {
     a->start();
     connect(a, SIGNAL(finished()), a, SLOT(deleteLater()));
 
-    QRect desktopRect = QApplication::desktop()->screenGeometry();
+    QRect desktopRect = QGuiApplication::primaryScreen()->geometry();
     this->setWindowFlags(Qt::Dialog | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
 
+    QNativeInterface::QX11Application *x11App = qGuiApp->nativeInterface<QNativeInterface::QX11Application>();
+    #define QTX11DISPLAY x11App->display()
     //QDialog::showFullScreen();
     Atom DesktopWindowTypeAtom;
-    DesktopWindowTypeAtom = XInternAtom(QX11Info::display(), "_NET_WM_WINDOW_TYPE_NORMAL", False);
-    XChangeProperty(QX11Info::display(), this->winId(), XInternAtom(QX11Info::display(), "_NET_WM_WINDOW_TYPE", False),
+    DesktopWindowTypeAtom = XInternAtom(QTX11DISPLAY, "_NET_WM_WINDOW_TYPE_NORMAL", False);
+    XChangeProperty(QTX11DISPLAY, this->winId(), XInternAtom(QTX11DISPLAY, "_NET_WM_WINDOW_TYPE", False),
                      XA_ATOM, 32, PropModeReplace, (unsigned char*) &DesktopWindowTypeAtom, 1); //Change Window Type
 
     unsigned long desktop = 0xFFFFFFFF;
-    XChangeProperty(QX11Info::display(), this->winId(), XInternAtom(QX11Info::display(), "_NET_WM_DESKTOP", False),
+    XChangeProperty(QTX11DISPLAY, this->winId(), XInternAtom(QTX11DISPLAY, "_NET_WM_DESKTOP", False),
                      XA_CARDINAL, 32, PropModeReplace, (unsigned char*) &desktop, 1); //Set visible on all desktops
 
     this->show();

@@ -8,12 +8,13 @@
 #include <QTimer>
 #include <QDateTime>
 #include <QDBusInterface>
-#include <QDesktopWidget>
 #include <QApplication>
 #include <QProcess>
 #include <QPushButton>
 #include <QComboBox>
-#include <QX11Info>
+#include <QScreen>
+#include <QGuiApplication>
+#include <QtGui/qguiapplication_platform.h>
 #include <polkit-qt5-1/PolkitQt1/Identity>
 
 #include <X11/Xlib.h>
