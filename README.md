@@ -1,4 +1,4 @@
-# qt-polkitagent
+# qt6-polkitagent
 Simple and lightweight agent for polkit
 
 ## Build
